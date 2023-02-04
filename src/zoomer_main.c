@@ -271,16 +271,16 @@ void scroll_callback(GLFWwindow* window, double xoffset, double yoffset) {
     (void) xoffset;
     if (yoffset < 0) {
         if (control_key && flashlight.is_enabled) {
-            flashlight.delta_radius += INITIAL_FL_DELTA_RADIUS;
+            flashlight.delta_radius -= INITIAL_FL_DELTA_RADIUS;
         } else {
-            camera.delta_scale += config.scroll_speed;
+            camera.delta_scale -= config.scroll_speed;
             camera.scale_pivot = mouse.curr;
         }
     } else {
         if (control_key && flashlight.is_enabled) {
-            flashlight.delta_radius -= INITIAL_FL_DELTA_RADIUS;
+            flashlight.delta_radius += INITIAL_FL_DELTA_RADIUS;
         } else {
-            camera.delta_scale -= config.scroll_speed;
+            camera.delta_scale += config.scroll_speed;
             camera.scale_pivot = mouse.curr;
         }
     }
